@@ -1,1 +1,64 @@
 
+public class Pblm1 {
+    private double a;
+    private double b;
+
+    public Pblm1(double a, double b) {
+        this.a = a;
+        this.b = b;
+    }
+
+    public double add() {
+        return a + b;
+    }
+
+    public double sub() {
+        return a - b;
+    }
+
+    public double mul() {
+        return a * b;
+    }
+
+    public double div() {
+        if (b != 0) {
+            return a / b;
+        } else {
+            throw new ArithmeticException("Cannot divide by zero.");
+        }
+    }
+
+    public static void main(String[] args) {
+        double a = 10.0;
+        double b = 2.0;
+        String operation = "div"; // Example operation, you can change it to test different operations
+
+        Pblm1 calculator = new Pblm1(a, b);
+
+        double result;
+        switch (operation) {
+            case "add":
+                result = calculator.add();
+                System.out.println("Result of addition: " + result);
+                break;
+            case "sub":
+                result = calculator.sub();
+                System.out.println("Result of subtraction: " + result);
+                break;
+            case "mul":
+                result = calculator.mul();
+                System.out.println("Result of multiplication: " + result);
+                break;
+            case "div":
+                try {
+                    result = calculator.div();
+                    System.out.println("Result of division: " + result);
+                } catch (ArithmeticException e) {
+                    System.out.println("Error: " + e.getMessage());
+                }
+                break;
+            default:
+                System.out.println("Invalid operation.");
+        }
+    }
+}
